@@ -2,7 +2,7 @@ Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
 Version:	1.3.13
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
 Patch2:		%{name}-bash.patch
+Patch3:		%{name}-crt0.patch
 URL:		http://penguinppc.org/projects/yaboot/
 Requires:	bash >= 2.0
 Requires:	hfsutils >= 3.2.0
@@ -35,6 +36,7 @@ Open Firmware, dziêki czemu nie trzeba stosowaæ Mac OS.
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__make}
