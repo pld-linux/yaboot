@@ -1,4 +1,4 @@
-# rc-boot driver for lilo
+# rc-boot driver for yaboot
 
 LOADER_CONFIG=/etc/yaboot.conf
 
