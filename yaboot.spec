@@ -5,7 +5,8 @@ Version:	1.3.10
 Release:	1
 License:	GPL
 Group:		Applications/System
-Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
+Source0:	http://penguinppc.org/projects/yaboot/archived/%{name}-%{version}.tar.gz
+# Source0-md5:	9770dc5128b2aa45d16d2002a9565002
 Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
@@ -14,9 +15,9 @@ Requires:	hfsutils >= 3.2.0
 Requires:	bash >= 2.0
 URL:		http://penguinppc.org/projects/yaboot/
 ExclusiveArch:	ppc
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides:	bootloader
 Obsoletes:	ybin
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 yaboot is a bootloader for PowerPC machines which works on New World
