@@ -1,7 +1,7 @@
 Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
-Version:	1.3.7
+Version:	1.3.10
 Release:	1
 License:	GPL
 Group:		Applications/System
