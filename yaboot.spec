@@ -2,10 +2,11 @@ Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
 Version:	1.3.6
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
+Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
 Patch2:		%{name}-bash.patch
@@ -14,6 +15,7 @@ Requires:	bash >= 2.0
 URL:		http://penguinppc.org/projects/yaboot/
 ExclusiveArch:	ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Provides:	bootloader
 Obsoletes:	ybin
 
 %description
@@ -43,6 +45,10 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=/ \
 	MANDIR=%{_mandir}
 
+install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot
+
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/
+
 gzip -9nf BUGS README THANKS TODO changelog doc/README.* doc/examples/*
 
 %clean
@@ -51,6 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz doc/*.gz doc/examples doc/yaboot-howto.html
+%attr(644,root,root) /etc/sysconfig/rc-boot/%{name}_functions.sh
 %attr(755,root,root) /sbin/*
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
 %dir /lib/%{name}
