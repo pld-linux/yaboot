@@ -24,9 +24,9 @@ ROM machines (Rev. A iMac and newer) and runs directly from Open
 Firmware, eliminating the need for Mac OS.
 
 %description -l pl
-yaboot to bootloader dla maszyn PowerPC, który dziala na maszynach New
-World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezposrednio z
-Open Firmware przez co nie trzeba stosowac Mac OS.
+yaboot to bootloader dla maszyn PowerPC, który dzia³a na maszynach New
+World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezpo¶rednio z
+Open Firmware przez co nie trzeba stosowaæ Mac OS.
 
 %prep
 %setup -q
