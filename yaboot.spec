@@ -49,14 +49,12 @@ install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/
 
-gzip -9nf BUGS README THANKS TODO changelog doc/README.* doc/examples/*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz doc/examples doc/yaboot-howto.html
+%doc BUGS README THANKS TODO changelog doc/*
 %attr(644,root,root) /etc/sysconfig/rc-boot/%{name}_functions.sh
 %attr(755,root,root) /sbin/*
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
