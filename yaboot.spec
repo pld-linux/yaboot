@@ -54,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BUGS README THANKS TODO changelog doc/*
+%doc BUGS README THANKS TODO changelog doc/README.* doc/yaboot-howto.html
 %attr(644,root,root) /etc/sysconfig/rc-boot/%{name}_functions.sh
 %attr(755,root,root) /sbin/*
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
