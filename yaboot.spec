@@ -9,9 +9,9 @@ Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
 URL:		http://penguinppc.org/projects/yaboot/
+ExclusiveArch:	ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	ybin
-ExclusiveArch:	ppc
 
 %description
 yaboot is a bootloader for PowerPC machines which works on New World
