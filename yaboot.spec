@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/System
 Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
 Patch0:		%{name}-man.patch
+Patch1:		%{name}-user.patch
 URL:		http://penguinppc.org/projects/yaboot/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	ybin
@@ -25,6 +26,7 @@ Open Firmware przez co nie trzeba stosowaæ Mac OS.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p1
 
 %build
 %{__make}
