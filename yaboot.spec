@@ -11,14 +11,14 @@ Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
 Patch2:		%{name}-bash.patch
-Requires:	hfsutils >= 3.2.0
-Requires:	bash >= 2.0
-Requires:	pmac-utils
 URL:		http://penguinppc.org/projects/yaboot/
-ExclusiveArch:	ppc
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Requires:	bash >= 2.0
+Requires:	hfsutils >= 3.2.0
+Requires:	pmac-utils
 Provides:	bootloader
 Obsoletes:	ybin
+ExclusiveArch:	ppc
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 yaboot is a bootloader for PowerPC machines which works on New World
@@ -28,7 +28,7 @@ Firmware, eliminating the need for Mac OS.
 %description -l pl
 yaboot to bootloader dla maszyn PowerPC, który dzia³a na maszynach New
 World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezpo¶rednio z
-Open Firmware przez co nie trzeba stosowaæ Mac OS.
+Open Firmware, dziêki czemu nie trzeba stosowaæ Mac OS.
 
 %prep
 %setup -q
@@ -48,8 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 	MANDIR=%{_mandir}
 
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot
-
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot
 
 %clean
 rm -rf $RPM_BUILD_ROOT
