@@ -9,6 +9,7 @@ Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
 Patch0:		%{name}-man.patch
 URL:		http://penguinppc.org/projects/yaboot/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	ybin
 ExclusiveArch:	ppc
 
 %description
@@ -33,8 +34,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	ROOT=$RPM_BUILD_ROOT \
-	PREFIX=%{_prefix} \
-	MANDIR=share/man
+	PREFIX=/ \
+	MANDIR=%{_mandir}
 
 gzip -9nf BUGS README THANKS TODO changelog doc/README.* doc/examples/*
 
@@ -46,5 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz doc/*.gz doc/examples doc/yaboot-howto.html
 %attr(755,root,root) /sbin/*
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
-%{_libdir}/%{name}
+%dir /lib/%{name}
+%attr(755,root,root) /lib/%{name}/addnote
+/lib/%{name}/*boot
 %{_mandir}/man?/*
