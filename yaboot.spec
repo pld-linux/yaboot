@@ -17,6 +17,7 @@ Requires:	bash >= 2.0
 Requires:	hfsutils >= 3.2.0
 Requires:	pmac-utils
 Provides:	bootloader
+Obsoletes:	quik
 Obsoletes:	ybin
 ExclusiveArch:	ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
