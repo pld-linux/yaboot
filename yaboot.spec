@@ -8,6 +8,7 @@ Group:		Applications/System
 Source0:	http://penguinppc.org/projects/yaboot/%{name}-%{version}.tar.gz
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
+Requires:	hfsutils >= 3.2.0
 URL:		http://penguinppc.org/projects/yaboot/
 ExclusiveArch:	ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
