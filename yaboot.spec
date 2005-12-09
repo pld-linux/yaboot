@@ -12,6 +12,7 @@ Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
 Patch2:		%{name}-bash.patch
 Patch3:		%{name}-crt0.patch
+Patch4:		%{name}-gcc4.patch
 URL:		http://penguinppc.org/projects/yaboot/
 Requires:	bash >= 2.0
 Requires:	hfsutils >= 3.2.0
@@ -38,6 +39,7 @@ Open Firmware, dziêki czemu nie trzeba stosowaæ Mac OS.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__make}
