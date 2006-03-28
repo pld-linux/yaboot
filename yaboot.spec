@@ -16,7 +16,6 @@ Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
 Patch2:		%{name}-bash.patch
 Patch3:		%{name}-crt0.patch
-Patch4:		%{name}-gcc4.patch
 URL:		http://yaboot.ozlabs.org/
 %if %{with doc}
 BuildRequires:	debiandoc-sgml
