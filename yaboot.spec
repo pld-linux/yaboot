@@ -1,11 +1,11 @@
 #
 %bcond_with	doc	# build documentation
 #
+%define	_rc	rc1
 Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
 Version:	1.3.14
-%define	_rc	rc1
 Release:	0.%{_rc}.1
 License:	GPL
 Group:		Applications/System
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %doc doc/yaboot-howto.html
 %endif
-%attr(644,root,root) /etc/sysconfig/rc-boot/%{name}_functions.sh
+/etc/sysconfig/rc-boot/%{name}_functions.sh
 %attr(755,root,root) /sbin/*
 %attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.conf
 %dir /lib/%{name}
