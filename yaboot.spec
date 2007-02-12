@@ -3,7 +3,7 @@
 #
 %define	_rc	rc1
 Summary:	Linux bootloader for Power Macintosh "New World" computers
-Summary(pl.UTF-8):   Bootloader dla komputerów Power Macintosh "New World"
+Summary(pl.UTF-8):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
 Version:	1.3.14
 Release:	0.%{_rc}.1
