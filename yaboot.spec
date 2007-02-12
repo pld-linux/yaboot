@@ -3,7 +3,7 @@
 #
 %define	_rc	rc1
 Summary:	Linux bootloader for Power Macintosh "New World" computers
-Summary(pl):	Bootloader dla komputerów Power Macintosh "New World"
+Summary(pl.UTF-8):   Bootloader dla komputerÃ³w Power Macintosh "New World"
 Name:		yaboot
 Version:	1.3.14
 Release:	0.%{_rc}.1
@@ -36,10 +36,10 @@ yaboot is a bootloader for PowerPC machines which works on New World
 ROM machines (Rev. A iMac and newer) and runs directly from Open
 Firmware, eliminating the need for Mac OS.
 
-%description -l pl
-yaboot to bootloader dla maszyn PowerPC, który dzia³a na maszynach New
-World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezpo¶rednio z
-Open Firmware, dziêki czemu nie trzeba stosowaæ Mac OS.
+%description -l pl.UTF-8
+yaboot to bootloader dla maszyn PowerPC, ktÃ³ry dziaÅ‚a na maszynach New
+World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezpoÅ›rednio z
+Open Firmware, dziÄ™ki czemu nie trzeba stosowaÄ‡ Mac OS.
 
 %prep
 %setup -q -n %{name}-%{version}%{_rc}
