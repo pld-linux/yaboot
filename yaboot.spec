@@ -1,7 +1,7 @@
 #
 %bcond_with	doc	# build documentation
 #
-%define	_rc	rc1
+%define	_rc	rc2
 Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl.UTF-8):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
@@ -10,7 +10,7 @@ Release:	0.%{_rc}.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://yaboot.ozlabs.org/snapshots/%{name}-%{version}%{_rc}.tar.gz
-# Source0-md5:	d3ddbe0365db7b6af6e58054f60cf98a
+# Source0-md5:	61fd673fa94a2fb1d51c5087e7ad6a42
 Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
@@ -21,6 +21,7 @@ URL:		http://yaboot.ozlabs.org/
 BuildRequires:	debiandoc-sgml
 BuildRequires:	opensp
 %endif
+BuildRequires:	e2fsprogs-static
 BuildRequires:	sed >= 4.0
 Requires:	bash >= 2.0
 Requires:	hfsutils >= 3.2.0
@@ -42,7 +43,7 @@ World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezpośrednio z
 Open Firmware, dzięki czemu nie trzeba stosować Mac OS.
 
 %prep
-%setup -q -n %{name}-%{version}%{_rc}
+%setup -q -c -n %{name}-%{version}%{_rc}
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
