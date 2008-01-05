@@ -42,6 +42,19 @@ yaboot to bootloader dla maszyn PowerPC, który działa na maszynach New
 World ROM (rewizja A iMac oraz nowsze) oraz pracuje bezpośrednio z
 Open Firmware, dzięki czemu nie trzeba stosować Mac OS.
 
+%package -n rc-boot-yaboot
+Summary:	yaboot support for rc-boot
+Summary(pl.UTF-8):	Wsparcie yaboota dla rc-boot
+Group:		Base
+Requires:	%{name} = %{version}-%{release}
+Requires:	rc-boot
+
+%description -n rc-boot-yaboot
+yaboot support for rc-boot.
+
+%description -n rc-boot-yaboot -l pl.UTF-8
+Wsparcie yaboota dla rc-boot.
+
 %prep
 %setup -q -c -n %{name}-%{version}%{_rc}
 %patch0 -p0
@@ -80,10 +93,13 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %doc doc/yaboot-howto.html
 %endif
-/etc/sysconfig/rc-boot/%{name}_functions.sh
 %attr(755,root,root) /sbin/*
 %attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.conf
 %dir /lib/%{name}
 %attr(755,root,root) /lib/%{name}/addnote
 /lib/%{name}/*boot
 %{_mandir}/man?/*
+
+%files -n rc-boot-yaboot
+%defattr(644,root,root,755)
+/etc/sysconfig/rc-boot/%{name}_functions.sh
