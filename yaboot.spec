@@ -48,6 +48,7 @@ Summary(pl.UTF-8):	Wsparcie yaboota dla rc-boot
 Group:		Base
 Requires:	%{name} = %{version}-%{release}
 Requires:	rc-boot
+Provides:	rc-boot-bootloader
 
 %description -n rc-boot-yaboot
 yaboot support for rc-boot.
