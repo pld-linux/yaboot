@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	doc	# build documentation
+%bcond_without	doc	# build documentation
 #
 Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl.UTF-8):	Bootloader dla komputerów Power Macintosh "New World"
