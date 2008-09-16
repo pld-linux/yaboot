@@ -1,16 +1,15 @@
 #
 %bcond_with	doc	# build documentation
 #
-%define	_rc	rc2
 Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl.UTF-8):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
 Version:	1.3.14
-Release:	0.%{_rc}.1
+Release:	0.1
 License:	GPL
 Group:		Applications/System
-Source0:	http://yaboot.ozlabs.org/snapshots/%{name}-%{version}%{_rc}.tar.gz
-# Source0-md5:	61fd673fa94a2fb1d51c5087e7ad6a42
+Source0:	http://yaboot.ozlabs.org/releases/%{name}-%{version}.tar.gz
+# Source0-md5:	9b1246c474eeb37f61081ad762563b35
 Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
@@ -57,17 +56,15 @@ yaboot support for rc-boot.
 Wsparcie yaboota dla rc-boot.
 
 %prep
-%setup -q -c -n %{name}-%{version}%{_rc}
+%setup -q -n %{name}-%{version}
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-sed -i '/VERSION=/s/=.*/=%{version}%{_rc}/' ybin/ybin
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	VERSION="%{version}%{_rc}"
+%{__make} strip \
+	CC="%{__cc}"
 
 %if %{with doc}
 %{__make} -C doc
@@ -78,9 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	ROOT=$RPM_BUILD_ROOT \
-	PREFIX=/ \
-	MANDIR=%{_mandir} \
-	VERSION="%{version}%{_rc}"
+	PREFIX= \
+	MANDIR=%{_mandir}
 
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot
