@@ -1,6 +1,5 @@
-diff -urN yaboot-1.3.6.org/Makefile yaboot-1.3.6/Makefile
---- yaboot-1.3.6.org/Makefile	Sat Mar  2 19:52:46 2002
-+++ yaboot-1.3.6/Makefile	Sat Mar  2 19:53:59 2002
+--- yaboot-1.3.14/Makefile.orig	2007-08-17 16:29:26.000000000 +0200
++++ yaboot-1.3.14/Makefile	2008-09-16 20:22:34.000000000 +0200
 @@ -7,8 +7,8 @@
  DEBUG = 0
  # make install vars
@@ -12,7 +11,7 @@ diff -urN yaboot-1.3.6.org/Makefile yaboot-1.3.6/Makefile
  # command used to get root (needed for tarball creation)
  GETROOT = fakeroot
  
-@@ -172,32 +172,32 @@
+@@ -178,32 +178,30 @@
  	strip --remove-section=.comment --remove-section=.note util/addnote
  
  install: all strip
@@ -42,7 +41,7 @@ diff -urN yaboot-1.3.6.org/Makefile yaboot-1.3.6/Makefile
 +	install -m 0755 ybin/yabootconfig ${ROOT}/${PREFIX}/sbin/yabootconfig
  	rm -f ${ROOT}/${PREFIX}/sbin/mkofboot
  	ln -s ybin ${ROOT}/${PREFIX}/sbin/mkofboot
- 	@gzip -9 man/*.[58]
+-	@gzip -9 man/*.[58]
 -	install -o root -g root -m 0644 man/bootstrap.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/bootstrap.8.gz
 -	install -o root -g root -m 0644 man/mkofboot.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/mkofboot.8.gz
 -	install -o root -g root -m 0644 man/ofpath.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/ofpath.8.gz
@@ -50,14 +49,14 @@ diff -urN yaboot-1.3.6.org/Makefile yaboot-1.3.6/Makefile
 -	install -o root -g root -m 0644 man/yabootconfig.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/yabootconfig.8.gz
 -	install -o root -g root -m 0644 man/ybin.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/ybin.8.gz
 -	install -o root -g root -m 0644 man/yaboot.conf.5.gz ${ROOT}/${PREFIX}/${MANDIR}/man5/yaboot.conf.5.gz
-+	install -m 0644 man/bootstrap.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/bootstrap.8.gz
-+	install -m 0644 man/mkofboot.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/mkofboot.8.gz
-+	install -m 0644 man/ofpath.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/ofpath.8.gz
-+	install -m 0644 man/yaboot.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/yaboot.8.gz
-+	install -m 0644 man/yabootconfig.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/yabootconfig.8.gz
-+	install -m 0644 man/ybin.8.gz ${ROOT}/${PREFIX}/${MANDIR}/man8/ybin.8.gz
-+	install -m 0644 man/yaboot.conf.5.gz ${ROOT}/${PREFIX}/${MANDIR}/man5/yaboot.conf.5.gz
- 	@gunzip man/*.gz
+-	@gunzip man/*.gz
++	install -m 0644 man/bootstrap.8 ${ROOT}/${PREFIX}/${MANDIR}/man8/bootstrap.8
++	install -m 0644 man/mkofboot.8 ${ROOT}/${PREFIX}/${MANDIR}/man8/mkofboot.8
++	install -m 0644 man/ofpath.8 ${ROOT}/${PREFIX}/${MANDIR}/man8/ofpath.8
++	install -m 0644 man/yaboot.8 ${ROOT}/${PREFIX}/${MANDIR}/man8/yaboot.8
++	install -m 0644 man/yabootconfig.8 ${ROOT}/${PREFIX}/${MANDIR}/man8/yabootconfig.8
++	install -m 0644 man/ybin.8 ${ROOT}/${PREFIX}/${MANDIR}/man8/ybin.8
++	install -m 0644 man/yaboot.conf.5 ${ROOT}/${PREFIX}/${MANDIR}/man5/yaboot.conf.5
  	@if [ ! -e ${ROOT}/etc/yaboot.conf ] ; then						\
 -		echo "install -o root -g root -m 0644 etc/yaboot.conf ${ROOT}/etc/yaboot.conf"; \
 -		install -o root -g root -m 0644 etc/yaboot.conf ${ROOT}/etc/yaboot.conf;	\
