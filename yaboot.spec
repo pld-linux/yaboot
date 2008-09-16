@@ -1,4 +1,5 @@
 #
+# Conditional build:
 %bcond_with	doc	# build documentation
 #
 Summary:	Linux bootloader for Power Macintosh "New World" computers
@@ -56,7 +57,7 @@ yaboot support for rc-boot.
 Wsparcie yaboota dla rc-boot.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
