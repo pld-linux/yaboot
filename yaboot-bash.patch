@@ -19,26 +19,6 @@ diff -uNr yaboot-1.3.6.orig/man.patch yaboot-1.3.6/man.patch
   \fBybin\fR). It is thus critical that it not be writable by anyone but
   root.  It is also critical that \fI/etc/yaboot.conf\fR not be writable
   by anyone but root since a different \fIofboot\fR script could be
-diff -uNr yaboot-1.3.6.orig/ybin/mkofboot yaboot-1.3.6/ybin/mkofboot
---- yaboot-1.3.6.orig/ybin/mkofboot	Sat Dec  1 10:58:11 2001
-+++ yaboot-1.3.6/ybin/mkofboot	Tue Mar 19 03:02:02 2002
-@@ -1,4 +1,4 @@
--#! /bin/sh
-+#! /bin/bash
- 
- ###############################################################################
- ##
-@@ -1192,8 +1192,8 @@
- 
-     ## call ofboot,
-     ## Usage: OS-count defaultos timeout fgc bgc osname oslabel oskey osdev osfile ...
--    [ "$DEBUG" = 1 ] && $PRINTF 1>&2 "$PRG: DEBUG: /bin/sh $magicboot $OS $defaultos $delay $fbc $bgc $YB $BSD $MAC $MX $DW $CD $NET $OF\n"
--    FIRST="$(/bin/sh "$magicboot" "$OS" "$defaultos" "$delay" $fgc $bgc ${YB} ${BSD} ${MAC} ${MX} ${DW} ${CD} ${NET} ${OF})" || return 1
-+    [ "$DEBUG" = 1 ] && $PRINTF 1>&2 "$PRG: DEBUG: /bin/bash $magicboot $OS $defaultos $delay $fbc $bgc $YB $BSD $MAC $MX $DW $CD $NET $OF\n"
-+    FIRST="$(/bin/bash "$magicboot" "$OS" "$defaultos" "$delay" $fgc $bgc ${YB} ${BSD} ${MAC} ${MX} ${DW} ${CD} ${NET} ${OF})" || return 1
- 
-     return 0
- }
 diff -uNr yaboot-1.3.6.orig/ybin/ofpath yaboot-1.3.6/ybin/ofpath
 --- yaboot-1.3.6.orig/ybin/ofpath	Thu Sep 20 15:15:32 2001
 +++ yaboot-1.3.6/ybin/ofpath	Tue Mar 19 03:01:31 2002

@@ -5,12 +5,12 @@
 Summary:	Linux bootloader for Power Macintosh "New World" computers
 Summary(pl.UTF-8):	Bootloader dla komputerów Power Macintosh "New World"
 Name:		yaboot
-Version:	1.3.14
+Version:	1.3.17
 Release:	0.1
-License:	GPL
+License:	GPL v2+
 Group:		Applications/System
 Source0:	http://yaboot.ozlabs.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	9b1246c474eeb37f61081ad762563b35
+# Source0-md5:	f599f52d1887a86fd798252d2946f635
 Source1:	%{name}_functions.sh
 Patch0:		%{name}-man.patch
 Patch1:		%{name}-user.patch
@@ -91,12 +91,22 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %doc doc/yaboot-howto.html
 %endif
-%attr(755,root,root) /sbin/*
+%attr(755,root,root) /sbin/mkofboot
+%attr(755,root,root) /sbin/ofpath
+%attr(755,root,root) /sbin/yabootconfig
+%attr(755,root,root) /sbin/ybin
 %attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.conf
 %dir /lib/%{name}
 %attr(755,root,root) /lib/%{name}/addnote
-/lib/%{name}/*boot
-%{_mandir}/man?/*
+%attr(755,root,root) /lib/%{name}/ofboot
+%attr(755,root,root) /lib/%{name}/yaboot
+%{_mandir}/man5/yaboot.conf.5*
+%{_mandir}/man8/bootstrap.8*
+%{_mandir}/man8/mkofboot.8*
+%{_mandir}/man8/ofpath.8*
+%{_mandir}/man8/yaboot.8*
+%{_mandir}/man8/yabootconfig.8*
+%{_mandir}/man8/ybin.8*
 
 %files -n rc-boot-yaboot
 %defattr(644,root,root,755)
